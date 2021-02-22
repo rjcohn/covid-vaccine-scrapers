@@ -83,6 +83,11 @@
         "dphLink": "https://myhealth.atriushealth.org/DPH",
         "signUpLink": "https://myhealth.atriushealth.org/fr/"
     },
+    "BMC": {
+        "name": "Boston Medical Center (multiple locations)",
+        "city": "Boston",
+        "signUpLink": "https://mychartscheduling.bmc.org/MyChartscheduling/covid19#/scheduling"
+    },
     "LynnTech": {
         "name": "Lynn Tech High School Field House",
         "street": "80 Neptune Blvd",
