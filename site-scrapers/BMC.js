@@ -27,7 +27,7 @@ async function ScrapeWebsiteData() {
 
     // Setup the return object.
     //mychartscheduling.bmc.org/MyChartscheduling/OpenScheduling/OpenScheduling
-    https: return mychart.AddFutureWeeks(
+    return mychart.AddFutureWeeks(
         "mychartscheduling.bmc.org",
         "/MyChartscheduling/OpenScheduling/OpenScheduling/GetOpeningsForProvider?noCache=0.4024598146273777",
         cookie,
