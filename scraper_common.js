@@ -6,6 +6,7 @@ const chromium = require("chrome-aws-lambda");
 const { addExtra } = require("puppeteer-extra");
 const Puppeteer = addExtra(chromium.puppeteer);
 
+const { notifyUsers } = require("./notify-users");
 const { getAllCoordinates } = require("./getGeocode");
 const {
     logGlobalMetric,
@@ -121,6 +122,9 @@ async function execute(usePuppeteer, scrapers) {
 
         const webData = JSON.stringify(responseJson);
 
+		if (process.env.NOTIFY_USERS) {
+			await notifyUsers(responseJson);
+		}
         if (process.env.DEVELOPMENT) {
             const outFile = usePuppeteer ? "out.json" : "out_no_browser.json";
             console.log(

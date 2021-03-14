@@ -1,0 +1,14 @@
+# rename to notify-config.yaml and update fields
+
+SenderEmail: sender@gmail.com
+EmailAddrList: [receiver@gmail.com]
+ChkFrqInS: 300
+MinAppointments: 1
+MaxDistance: 0
+LocationExcludeList: [Springfield, Greenfield, Barrington, Agawam]
+PhoneNumbers: ['+16175551212']
+TwilioAccountSID: SID here
+TwilioAuthToken: token here
+TwilioPhoneNumber: "+18575551212"
+TestPhoneNumber: "+16175551212"
+MessagePrefix: ""

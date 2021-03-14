@@ -8,5 +8,6 @@ out.json
 out_no_browser.json
 .eslintrc.json
 .vscode/
+.idea/
 .DS_Store
 .aws-sam/
