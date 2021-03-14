@@ -96,7 +96,7 @@ exports.notifyUsers = notifyUsers;
 
 if (require.main === module) {
     (async () => {
-		let responseJSON = JSON.parse(fs.readFileSync("out.json"))
+		let responseJSON = JSON.parse(fs.readFileSync(process.env.OUT_JSON || "out.json"))
         await notifyUsers(responseJSON);
         process.exit();
     })();
