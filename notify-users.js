@@ -65,6 +65,7 @@ const notifyUsers = async (responseJSON) => {
 	} else {
 		let message_text = `${config.MessagePrefix}Appointments available: `;
 		message_text += sites.map(site => `${site.name} (${site.appointments}) ${site.signUpLink}`).join(", ");
+		console.log(`Message: ${message_text}`)
 		// for (let to_number of config.PhoneNumbers) {
 		// 	await twilio.messages.create({
 		// 		body: message_text,
