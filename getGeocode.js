@@ -50,7 +50,7 @@ const getAllCoordinates = async (locations, cachedResults) => {
             if (existingLocations[locationInd]) {
                 return { ...location, ...existingLocations[locationInd] };
             } else {
-                const locationData = await getGeocode(name, street, zip);
+                const locationData = (street && zip) ? await getGeocode(name, street, zip) : null;
 
                 if (locationData) {
                     return {
