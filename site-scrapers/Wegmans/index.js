@@ -17,6 +17,7 @@ module.exports = async function GetAvailableAppointments(browser) {
 async function ScrapeWebsiteData(browser) {
     const page = await browser.newPage();
     await page.goto(site.signUpLink, { waitUntil: "networkidle0" });
+
     await page.waitForSelector("#frameForm");
 
     const frameForm = await page.$("#frameForm");
@@ -28,7 +29,18 @@ async function ScrapeWebsiteData(browser) {
     await page.waitForXPath(paths.getStartedBtn);
     const getStartedBtns = await page.$x(paths.getStartedBtn);
     getStartedBtns[0].click();
-    await page.waitForXPath(paths.massOption);
+
+    let hasAvailability = false;
+    let availability = {};
+
+    try {
+        await page.waitForXPath(paths.massOption, { timeout: 5000 });
+    } catch (e) {
+        return {
+            hasAvailability,
+            availability,
+        };
+    }
     const massLinks = await page.$x(paths.massOption);
     massLinks[1].click();
 
@@ -48,9 +60,6 @@ async function ScrapeWebsiteData(browser) {
             }
         }, 500);
     });
-
-    let hasAvailability = false;
-    let availability = {};
 
     const noAppointments = lastMessageText.includes(paths.noAppointments);
     if (!noAppointments) {

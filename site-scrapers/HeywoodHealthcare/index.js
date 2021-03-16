@@ -67,7 +67,7 @@ async function ScrapeWebsiteData(browser) {
     }
 
     return {
-        hasAppointments: hasAppointments,
+        hasAvailability: hasAppointments,
         totalAvailability: totalAvailability,
     };
 }

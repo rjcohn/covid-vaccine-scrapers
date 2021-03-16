@@ -47,7 +47,7 @@ async function ScrapeWebsiteData(browser) {
     }
 
     const isChallenge = await Promise.race([
-        page.waitForSelector("#radio-security").then(() => true),
+        page.waitForSelector("#radio-security", {timeout:5000}).then(() => true).catch(err => false),
         page.waitForSelector("#pf-acc-signout").then(() => false),
     ]);
 
