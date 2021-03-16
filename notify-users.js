@@ -19,7 +19,7 @@ const distanceToLocation = (config, location) => {
 const notifyUsers = async (responseJSON) => {
 	let configFile = fs.readFileSync('./notify-config.yaml', 'utf8');
     let config = yaml.load(configFile);
-	console.log(config);
+	//console.log(config);
 
 	const twilio = require('twilio')(config.TwilioAccountSID, config.TwilioAuthToken);
 	// let message = await twilio.messages.create({
@@ -61,11 +61,11 @@ const notifyUsers = async (responseJSON) => {
 		sites = close_sites
 	}
 	if (sites.length === 0) {
-		console.log(`No sites with at least ${config.MinAppointments} appointments`);
+		console.log(`notify-users: No sites with at least ${config.MinAppointments} appointments`);
 	} else {
 		let message_text = `${config.MessagePrefix}Appointments available: `;
 		message_text += sites.map(site => `${site.name} (${site.appointments}) ${site.signUpLink}`).join(", ");
-		console.log(`Message: ${message_text}`)
+		console.log(`notify-users: message: ${message_text}`)
 		// for (let to_number of config.PhoneNumbers) {
 		// 	await twilio.messages.create({
 		// 		body: message_text,
@@ -88,7 +88,7 @@ const notifyUsers = async (responseJSON) => {
 				html: html_message
 			}
 			let response = await transport.sendMail(message);
-			console.log(response)
+			//console.log(response)
 		}
 	}
 };

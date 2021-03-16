@@ -4,4 +4,4 @@ build:
 run:
 	@mkdir -p out
 	@chmod a+rwx out
-	echo docker run --rm -it --security-opt seccomp=$(CURDIR)/chrome.json -v $(CURDIR)/out:/app/out covid-vaccine-scraper
+	docker run --rm -it --security-opt seccomp=$(CURDIR)/chrome.json -v $(CURDIR)/out:/app/out covid-vaccine-scraper
